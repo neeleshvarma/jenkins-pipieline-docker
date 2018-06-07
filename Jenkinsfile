@@ -12,7 +12,9 @@ pipeline {
       }
     }
     stage('Docker Build') {
-      agent any
+      agent {
+      	dockerfile true
+      }
       steps {
         sh 'docker build -f Dockerfile -t docker-springboot.jar .'
       }
